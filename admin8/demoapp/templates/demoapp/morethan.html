@@ -1,0 +1,100 @@
+{% include "demoapp/header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    body {
+      color: black;
+    }
+    .table-div {
+      padding: 40px 250px 40px 250px;
+    }
+    .table {
+      border: 2px solid black;
+      cursor: pointer;
+    }
+    tr:nth-child(even) {
+      background-color: #dadada;
+    }
+    tr:hover {
+      background-color: #434343;
+      color: white;
+    }
+    /* .btn {
+      padding: 12px;
+      background-color: #279d5c;
+      color: aliceblue;
+    } */
+    /* .btn:hover {
+      background-color: #51ea96;
+    } */
+
+    .thead-dark {
+      background-color: darkcyan;
+    }
+    h3 {
+      margin-left: 220px;
+    }
+    .name {
+      text-decoration: none;
+      color: inherit;
+    }
+    .name:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <div class="table-div jumbotron" style="margin-bottom: 0">
+      <h3>Students and their marks</h3>
+      <br />
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Roll no</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mark</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          {% if data %} {% for i in data %}
+          <tr>
+            <td>{{i.roll}}</td>
+            <td><a class="name" href="/update/{{i.id}}"> {{i.name}} </a></td>
+            <td>{{i.mark}}</td>
+          </tr>
+          {% endfor %} {% else %}
+          <h4>No students in database...</h4>
+          {% endif %}
+        </tbody>
+      </table>
+      <a href="/add/"
+        ><button
+          type="submit"
+          class="btn btn-primary"
+          style="
+            background-color: #28a745;
+            color: whitesmoke;
+            margin-left: 310px;
+          "
+        >
+          ADD student
+        </button></a
+      >
+
+      <br />
+    </div>
+  </body>
+</html>
+{% include "demoapp/footer.html" %}

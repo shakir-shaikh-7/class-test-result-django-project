@@ -1,0 +1,97 @@
+{% include "demoapp/header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>add page</title>
+  </head>
+  <style>
+    .add {
+      padding: 10px;
+    }
+    .form1 {
+      padding: 50px 380px 50px 380px;
+    }
+    .bor {
+      border: 2px solid black;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgb(231, 231, 231);
+    }
+    .form-btn{
+      display: flex;
+      gap: 200px;
+    }
+  </style>
+  <body>
+<div class="jumbotron" style="margin-bottom: 0">
+  <form action="" class="form1 " method="post">
+      <h2>Update Student {{data.name}} data</h2>
+      {% csrf_token %}
+      <div class="bor">
+        <div class="form-group">
+          <label for="roll">Roll no</label>
+          <input
+            type="number"
+            class="form-control"
+            value="{{data.roll}}"
+            id="roll"
+            name="roll"
+            
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            value="{{data.name}}"
+            name="name"
+
+            
+            
+          />
+        </div>
+        <div class="form-group">
+          <label for="mark">Mark</label>
+          <input
+            type="number"
+            name="mark"
+            class="form-control"
+            id="num"
+            value="{{data.mark}}"
+            
+          />
+        </div>
+        <div class="form-group form-btn">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="background-color: black; color: whitesmoke"
+          >
+            Update
+        </div>
+      </button>
+     
+      </div>
+    </form>
+    <a href="/delete/{{data.id}}/"><button
+      type="submit"
+      class="btn btn-primary"
+      style="background-color: rgb(197, 23, 23); color: whitesmoke; margin-left: 400px; margin-top: -70px;"
+    >
+      Delete
+    </button></a>
+  
+  </body>
+</html>
+{% include "demoapp/footer.html" %}
